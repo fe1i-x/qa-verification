@@ -7,11 +7,12 @@
   <link rel="preload" href="//privacy-proxy.usercentrics.eu/latest/uc-block.bundle.js" as="script">
   <script id="usercentrics-cmp" src="https://app.usercentrics.eu/browser-ui/latest/loader.js" data-settings-id="3g_nBMYLN" async></script>
   <script type="application/javascript" src="https://privacy-proxy.usercentrics.eu/latest/uc-block.bundle.js"></script>
-  <script>
-uc.deactivateBlocking([
-  'BJz7qNsdj-7'
-]);
-</script>
+  <script>uc.reloadOnOptIn('BJz7qNsdj-7');</script>
+  <script>uc.reloadOnOptOut('r1Fhc4iOoWX');</script>
+  <script>uc.blockElements({
+  'd_5HNF7Yc': '#customEmbedding'
+  });
+  </script>
   <!-- Google Tag Manager -->
   <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
   new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
@@ -42,7 +43,12 @@ uc.deactivateBlocking([
   This test page should verify that different functionalities of our CMP are working.
 
   <h1> YouTube Embedding </h1>
+  <p>The page should refresh, once the Technology is accepted.</p>
   <iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/DWcJFNfaw9c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  
+  <h1> Custom Embedding </h1>
+  <p>This is just a picture, which should be unblocked, if Salesforce consent is given.</p>
+  <img src="https://images.unsplash.com/photo-1616193473466-575a3b42e128?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=2670&q=80" id="customEmbedding">
   
   <h1> Twitter Embedding </h1>
   <blockquote
@@ -64,7 +70,8 @@ charset="utf-8"></script>
   <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m12!1m3!1d42550.78176913606!2d11.6391936!3d48.198451199999994!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!5e0!3m2!1sen!2sde!4v1627274483897!5m2!1sen!2sde" width="600" height="450" style="border:0;" allowfullscreen="" loading="lazy"></iframe>
   
   <h1> HubSpot Forms without iFrame </h1>
- div class="consent-content">
+  <p>The page should reload, after consent was revoked.</p>
+ <div class="consent-content">
             <div id="container" class="hbspt-container-593"></div>
             <script id="testScript" charset="utf-8" type="text/javascript" src="//js.hsforms.net/forms/v2.js"></script>
             <script>
@@ -82,8 +89,6 @@ charset="utf-8"></script>
                     formId:"9cd442ab-1d93-4958-9c5c-65199a65e8bf"
                 });
             </script>
-  
-  <h1> Pinterest Embedding </h1>
-  <iframe src="https://pin.it/11Ezo20"></iframe>
+  </div>
   </body>
 </html>
